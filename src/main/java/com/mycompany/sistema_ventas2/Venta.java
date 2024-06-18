@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  * @author xergg
  */
 public class Venta extends javax.swing.JDialog {
-    ArrayList <Cliente> listaClientes = new ArrayList <Cliente>();
+    ArrayList <Cliente> listaClientes2 = new ArrayList <Cliente>();
     Cliente c;
     
 
@@ -188,7 +188,6 @@ public class Venta extends javax.swing.JDialog {
                         .addComponent(btnCrearPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -196,7 +195,6 @@ public class Venta extends javax.swing.JDialog {
                         .addComponent(txtStock, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(96, 96, 96))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(64, 64, 64))))
         );
@@ -318,6 +316,7 @@ public class Venta extends javax.swing.JDialog {
         
         
         JOptionPane.showMessageDialog(null, "Pedido creado correctamente","Accion exitosa",JOptionPane.INFORMATION_MESSAGE);
+        
         
         txtNombre.setEnabled(false);
         txtDni.setEnabled(false);

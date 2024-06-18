@@ -24,7 +24,8 @@ public class ReporteVenta extends javax.swing.JDialog {
     public void listarClientes(){
         txaReporte.setText("");
         int i = 0;
-
+        
+        
         for (Cliente c: Principal.listaClientes){
             txaReporte.append("Nombre: "+ c.getNombre());
             txaReporte.append("\nDNI; "+ c.getDni());
@@ -39,10 +40,13 @@ public class ReporteVenta extends javax.swing.JDialog {
         for (Producto pro:Principal.listaProductos){
             txaReporte.append("\nProducto: "+ pro.getNombre());
             txaReporte.append("\nCantidad: " + pro.getCantidad());
-            
+          
         }
         i++;
-    }
+        
+                
+        
+}
     /**{
      * 
      * This method is called from within the constructor to initialize the form.

@@ -52,6 +52,8 @@ public class Principal extends javax.swing.JFrame {
         MnuClientes = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         MnuReporte = new javax.swing.JMenuItem();
+        jmenupago = new javax.swing.JMenu();
+        MnuPago = new javax.swing.JMenuItem();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -97,10 +99,11 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel4.setText("Importaciones PEJAF I.R.L");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 480, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 430, -1));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\xergg\\OneDrive\\Escritorio\\repuestos.png")); // NOI18N
         jLabel1.setText("LOGO");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 470, 270));
 
         jMenu1.setText("Menu");
         jMenu1.addActionListener(new java.awt.event.ActionListener() {
@@ -166,6 +169,13 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu5);
 
+        jmenupago.setText("Pago");
+
+        MnuPago.setText("Pagar compra");
+        jmenupago.add(MnuPago);
+
+        jMenuBar1.add(jmenupago);
+
         setJMenuBar(jMenuBar1);
 
         pack();
@@ -176,10 +186,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu1ActionPerformed
 
     private void MnuVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnuVentasActionPerformed
-        
-        
-        
-        
+    
     }//GEN-LAST:event_MnuVentasActionPerformed
 
     private void MnuNuevaVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnuNuevaVentaActionPerformed
@@ -265,6 +272,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem MnuCerrar;
     private javax.swing.JMenuItem MnuClientes;
     private javax.swing.JMenuItem MnuNuevaVenta;
+    private javax.swing.JMenuItem MnuPago;
     private javax.swing.JMenuItem MnuProductos;
     private javax.swing.JMenuItem MnuReporte;
     private javax.swing.JMenu MnuVentas;
@@ -287,5 +295,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JPopupMenu jPopupMenu2;
+    private javax.swing.JMenu jmenupago;
     // End of variables declaration//GEN-END:variables
 }

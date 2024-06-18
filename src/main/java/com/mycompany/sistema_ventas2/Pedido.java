@@ -35,30 +35,7 @@ public class Pedido {
         
     }
     
-    public void agregarCliente(String nombre,String dni,String telefono,String direccion){
-        Cliente c = new Cliente(nombre,dni,telefono,direccion);
-        //listaClientes.add(c);
-    }
-    
-    //Método para mostrar productos
-    public void mostrarPedido(){
-        
-        //for(Cliente c:listaClientes){
-            //System.out.println("Cliente: " + c.getNombre());
-            //System.out.println("Su pedido es el siguiente: ");
-        }
-        
-        int i = 0;
-        
-        //for(Producto p : listaProductos){
-           // System.out.println("Producto[" + i + "]");
-            //System.out.println("\tId: " + p.getId());
-            //System.out.println("\tNombre: " + p.getNombre());
-            //System.out.println("\tStock Actual: " + p.getStock());
-            //i++;
-        }
-   //}
+} 
     
     
-    
-//}
+
