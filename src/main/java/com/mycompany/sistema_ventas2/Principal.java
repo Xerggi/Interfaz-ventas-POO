@@ -94,16 +94,16 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar2.add(jMenu4);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(800, 700));
+        setBackground(new java.awt.Color(255, 204, 204));
+        setMinimumSize(new java.awt.Dimension(715, 512));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Georgia", 0, 36)); // NOI18N
         jLabel4.setText("Importaciones PEJAF I.R.L");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 430, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 460, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\xergg\\OneDrive\\Escritorio\\repuestos.png")); // NOI18N
-        jLabel1.setText("LOGO");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 470, 270));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logo.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, -1, 270));
 
         jMenu1.setText("Menu");
         jMenu1.addActionListener(new java.awt.event.ActionListener() {
