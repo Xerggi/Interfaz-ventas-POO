@@ -11,15 +11,17 @@ package com.mycompany.sistema_ventas2;
 public class Producto {
     private String nombre;
     private int cantidad;
+    private double precio;
     private int stock;
 
     public Producto() {
     }
     
     
-    public Producto(String nombre, int cantidad, int stock) {
+    public Producto(String nombre, int cantidad,double precio, int stock) {
         this.nombre = nombre;
         this.cantidad=cantidad;
+        this.precio=precio;
         this.stock = stock;
     }
 
@@ -39,6 +41,14 @@ public class Producto {
         this.nombre = nombre;
     }
 
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+    
     public int getStock() {
         return stock;
     }

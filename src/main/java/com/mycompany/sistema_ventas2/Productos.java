@@ -23,11 +23,30 @@ public class Productos extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(parent);
-        String Titulos[] = {"Nombre del producto","ID del Producto","Stock disponible"};
-        mt.setColumnIdentifiers(Titulos);
-        jTable1.setModel(mt);
+        
+        String Titulos[] = {"Nombre del producto","ID del Producto","Precio del producto","Stock disponible"};
+        mt.setColumnIdentifiers(Titulos); 
+        TablaProductos.setModel(mt);
+        
+         Object[][] productos = {
+            {"Pastilla de Freno", "001", 250, 100},
+            {"Discos de Freno", "002", 400, 100},
+            {"Tambores de Freno", "003", 300, 100},
+            {"Cilindros de Freno", "004", 150, 100},
+            {"Discos de embriague", "004", 350, 100},
+            {"Platos de presion", "004", 400, 100},
+            {"Kits de embriague", "004", 800, 100},
+        };
+         
+        for (Object[] producto : productos) {
+            mt.addRow(producto);
+        }
+        
+        TablaProductos.setModel(mt);
     }
-
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,68 +56,85 @@ public class Productos extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        txtNombreProducto = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        txtNombreProducto = new javax.swing.JTextField();
         txtCodigoProducto = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        txtPrecio = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
         txtStock = new javax.swing.JTextField();
         btnAñadir = new javax.swing.JButton();
         btnBorrar = new javax.swing.JButton();
-        btnActualizar = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TablaProductos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Lista de  Productos");
-        setMinimumSize(new java.awt.Dimension(670, 500));
+        setTitle("Modulo de Productos");
+        setBackground(new java.awt.Color(153, 153, 153));
+        setMinimumSize(new java.awt.Dimension(650, 580));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 550, 270));
+        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(txtNombreProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 200, -1));
 
         jLabel1.setText("Producto");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
         jLabel2.setText("Codigo");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
+        jPanel1.add(txtCodigoProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 200, -1));
+
+        jLabel4.setText("Precio");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 40, -1));
+        jPanel1.add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 200, -1));
 
         jLabel3.setText("Stock");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, -1, -1));
-        getContentPane().add(txtNombreProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 80, -1));
-        getContentPane().add(txtCodigoProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, 90, -1));
-        getContentPane().add(txtStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 320, 50, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
+        jPanel1.add(txtStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 200, -1));
 
-        btnAñadir.setText("Añadir");
+        btnAñadir.setText("AGREGAR");
         btnAñadir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAñadirActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAñadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 390, -1, -1));
+        jPanel1.add(btnAñadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 40, 100, 40));
 
-        btnBorrar.setText("Borrar");
+        btnBorrar.setText("BORRAR");
         btnBorrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBorrarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 390, -1, -1));
+        jPanel1.add(btnBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 120, 100, 40));
 
-        btnActualizar.setText("Actualizar");
-        getContentPane().add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 390, -1, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 590, 210));
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        TablaProductos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(TablaProductos);
+
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 550, 270));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 590, 310));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -107,17 +143,19 @@ public class Productos extends javax.swing.JDialog {
         
         String nombre = String.valueOf(txtNombreProducto.getText());
         String codigo = String.valueOf(txtCodigoProducto.getText());
+        double precio = Double.parseDouble(txtPrecio.getText());
         int stock = Integer.parseInt(txtStock.getText());
-        mt.addRow(new Object[]{nombre,codigo,stock});
+        mt.addRow(new Object[]{nombre,codigo,precio,stock});
         txtNombreProducto.setText("");
         txtCodigoProducto.setText("");
+        txtPrecio.setText("");
         txtStock.setText("");
         
         JOptionPane.showMessageDialog(null, "Producto agregado correctamente","Accion exitosa",JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnAñadirActionPerformed
 
     private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
-        mt.removeRow(jTable1.getSelectedRow());
+        mt.removeRow(TablaProductos.getSelectedRow());
     }//GEN-LAST:event_btnBorrarActionPerformed
 
     /**
@@ -163,16 +201,19 @@ public class Productos extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnActualizar;
+    private javax.swing.JTable TablaProductos;
     private javax.swing.JButton btnAñadir;
     private javax.swing.JButton btnBorrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField txtCodigoProducto;
     private javax.swing.JTextField txtNombreProducto;
+    private javax.swing.JTextField txtPrecio;
     private javax.swing.JTextField txtStock;
     // End of variables declaration//GEN-END:variables
 }

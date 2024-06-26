@@ -22,28 +22,29 @@ public class ReporteVenta extends javax.swing.JDialog {
     
     
     public void listarClientes(){
-        txaReporte.setText("");
-        int i = 0;
-        
-        
-        for (Cliente c: Principal.listaClientes){
-            txaReporte.append("Nombre: "+ c.getNombre());
-            txaReporte.append("\nDNI; "+ c.getDni());
-            txaReporte.append("\nTelefono; "+ c.getTelefono());
-            txaReporte.append("\nDireccion; "+ c.getDireccion()+ "\n");
-            
+         txaReporte.setText("");
+    
+        for (Cliente c : Principal.listaClientes) {
+            txaReporte.append("Nombre: " + c.getNombre());
+            txaReporte.append("\nDNI: " + c.getDni());
+            txaReporte.append("\nTelefono: " + c.getTelefono());
+            txaReporte.append("\nDireccion: " + c.getDireccion() + "\n");
         }
-        for (Pedido p:Principal.listaPedidos){
-            txaReporte.append("Pedido: " + p.getCodigo());
+
+        for (Pedido p : Principal.listaPedidos) {
+            txaReporte.append("\nPedido: " + p.getCodigo());
+            for (Producto pro : p.getListaProductos()) {
+                txaReporte.append("\n  Producto: " + pro.getNombre());
+                txaReporte.append("\n  Cantidad: " + pro.getCantidad());
+                txaReporte.append("\n  Precio: " + pro.getPrecio());
+                txaReporte.append("\n  Stock: " + pro.getStock());
+            }
         }
-        
-        for (Producto pro:Principal.listaProductos){
-            txaReporte.append("\nProducto: "+ pro.getNombre());
+
+        for (Producto pro : Principal.listaProductos) {
+            txaReporte.append("\nProducto: " + pro.getNombre());
             txaReporte.append("\nCantidad: " + pro.getCantidad());
-          
         }
-        i++;
-        
                 
         
 }
@@ -59,7 +60,6 @@ public class ReporteVenta extends javax.swing.JDialog {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         txaReporte = new javax.swing.JTextArea();
-        btnExportar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Reporte Ventas");
@@ -71,22 +71,10 @@ public class ReporteVenta extends javax.swing.JDialog {
         txaReporte.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista"));
         jScrollPane1.setViewportView(txaReporte);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 410, 320));
-
-        btnExportar.setText("EXPORTAR");
-        btnExportar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExportarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnExportar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 360, -1, 40));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 28, 430, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnExportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnExportarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -131,7 +119,6 @@ public class ReporteVenta extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnExportar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea txaReporte;
     // End of variables declaration//GEN-END:variables

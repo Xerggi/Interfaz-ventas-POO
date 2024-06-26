@@ -44,10 +44,9 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         MnuCerrar = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
         MnuVentas = new javax.swing.JMenu();
         MnuNuevaVenta = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
+        MnuEmpleados = new javax.swing.JMenu();
         MnuProductos = new javax.swing.JMenuItem();
         MnuClientes = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
@@ -94,18 +93,19 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar2.add(jMenu4);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(255, 204, 204));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setMinimumSize(new java.awt.Dimension(715, 512));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setFont(new java.awt.Font("Georgia", 0, 36)); // NOI18N
         jLabel4.setText("Importaciones PEJAF I.R.L");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 460, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 460, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logo.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, -1, 270));
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\xergg\\OneDrive\\Escritorio\\logo.png")); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, -1, 270));
 
         jMenu1.setText("Menu");
+        jMenu1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenu1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu1ActionPerformed(evt);
@@ -113,6 +113,7 @@ public class Principal extends javax.swing.JFrame {
         });
 
         MnuCerrar.setText("Cerrar el programa");
+        MnuCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         MnuCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnuCerrarActionPerformed(evt);
@@ -120,12 +121,10 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu1.add(MnuCerrar);
 
-        jMenuItem6.setText("Ayuda");
-        jMenu1.add(jMenuItem6);
-
         jMenuBar1.add(jMenu1);
 
         MnuVentas.setText("Ventas");
+        MnuVentas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         MnuVentas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnuVentasActionPerformed(evt);
@@ -133,6 +132,7 @@ public class Principal extends javax.swing.JFrame {
         });
 
         MnuNuevaVenta.setText("Generar Venta");
+        MnuNuevaVenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         MnuNuevaVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnuNuevaVentaActionPerformed(evt);
@@ -142,24 +142,34 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(MnuVentas);
 
-        jMenu3.setText("Mantenimiento");
+        MnuEmpleados.setText("Mantenimiento");
+        MnuEmpleados.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         MnuProductos.setText("Productos");
+        MnuProductos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         MnuProductos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnuProductosActionPerformed(evt);
             }
         });
-        jMenu3.add(MnuProductos);
+        MnuEmpleados.add(MnuProductos);
 
-        MnuClientes.setText("Clientes");
-        jMenu3.add(MnuClientes);
+        MnuClientes.setText("Empleados");
+        MnuClientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        MnuClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnuClientesActionPerformed(evt);
+            }
+        });
+        MnuEmpleados.add(MnuClientes);
 
-        jMenuBar1.add(jMenu3);
+        jMenuBar1.add(MnuEmpleados);
 
         jMenu5.setText("Reportes");
+        jMenu5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         MnuReporte.setText("Reporte venta");
+        MnuReporte.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         MnuReporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnuReporteActionPerformed(evt);
@@ -170,8 +180,14 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu5);
 
         jmenupago.setText("Pago");
+        jmenupago.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         MnuPago.setText("Pagar compra");
+        MnuPago.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnuPagoActionPerformed(evt);
+            }
+        });
         jmenupago.add(MnuPago);
 
         jMenuBar1.add(jmenupago);
@@ -193,22 +209,36 @@ public class Principal extends javax.swing.JFrame {
         Venta v = new Venta(this,true);
         v.setVisible(true);
         
-        if (v.getC() != null){
-            listaClientes.add(v.getC());
-        }else {
-            JOptionPane.showMessageDialog(null, "Ingrese datos","Accion errada", JOptionPane.INFORMATION_MESSAGE);
-        }
         
-        if(v.getP() != null){
-            listaPedidos.add(v.getP());
-    }else {
-            JOptionPane.showMessageDialog(null, "Ingrese datos","Accion errada", JOptionPane.INFORMATION_MESSAGE);
+       try {
+        if (v.getCliente() != null) {
+            listaClientes.add(v.getCliente());
+        } else {
+            JOptionPane.showMessageDialog(null, "Ingrese datos de cliente", "Acción errada", JOptionPane.INFORMATION_MESSAGE);
         }
-        if(v.getPro() !=null){
-            listaProductos.add(v.getPro());
-        }else{
-            JOptionPane.showMessageDialog(null, "Ingrese datos","Accion errada", JOptionPane.INFORMATION_MESSAGE);
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error al agregar el cliente: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+    }
+
+    try {
+        if (v.getPedido() != null) {
+            listaPedidos.add(v.getPedido());
+        } else {
+            JOptionPane.showMessageDialog(null, "Ingrese datos de pedido", "Acción errada", JOptionPane.INFORMATION_MESSAGE);
         }
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error al agregar el pedido: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+    }
+
+    try {
+        if (!v.getProductos().isEmpty()) {
+            listaProductos.addAll(v.getProductos());
+        } else {
+            JOptionPane.showMessageDialog(null, "Ingrese datos de producto", "Acción errada", JOptionPane.INFORMATION_MESSAGE);
+        }
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error al agregar los productos: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+    }
         
         
     }//GEN-LAST:event_MnuNuevaVentaActionPerformed
@@ -232,6 +262,16 @@ public class Principal extends javax.swing.JFrame {
         Productos p = new Productos(this,true);
         p.setVisible(true);
     }//GEN-LAST:event_MnuProductosActionPerformed
+
+    private void MnuClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnuClientesActionPerformed
+        Empleados e = new Empleados(this, true);
+        e.setVisible(true);
+    }//GEN-LAST:event_MnuClientesActionPerformed
+
+    private void MnuPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnuPagoActionPerformed
+        EfectuarPago efectuarpago = new EfectuarPago(this,true);
+        efectuarpago.setVisible(true);
+    }//GEN-LAST:event_MnuPagoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -271,6 +311,7 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem MnuCerrar;
     private javax.swing.JMenuItem MnuClientes;
+    private javax.swing.JMenu MnuEmpleados;
     private javax.swing.JMenuItem MnuNuevaVenta;
     private javax.swing.JMenuItem MnuPago;
     private javax.swing.JMenuItem MnuProductos;
@@ -282,7 +323,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
@@ -290,7 +330,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPopupMenu jPopupMenu1;

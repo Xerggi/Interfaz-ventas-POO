@@ -12,53 +12,42 @@ import java.util.ArrayList;
  */
 public class Factura {
     
-    private int numero;
     private Pedido pedido;
-    private double total;
-    private ArrayList <DetalleVenta> listaventa = new ArrayList<DetalleVenta>();
+    private Cliente cliente;
+    private double totalSinIGV;
+    private double totalConIGV;
+    private static final double IGV = 0.18;
 
-    public Factura() {
-    }
-
-    
-    public Factura(int numero, Pedido pedido, double total) {
-        this.numero = numero;
+    public Factura(Pedido pedido,Cliente cliente) {
         this.pedido = pedido;
-        this.total = total;
+        this.cliente=cliente;
+        calcularTotales();
     }
 
-    public int getNumero() {
-        return numero;
-    }
-
-    public void setNumero(int numero) {
-        this.numero = numero;
+    private void calcularTotales() {
+        totalSinIGV = 0;
+        for (Producto producto : pedido.getListaProductos()) {
+            totalSinIGV += producto.getPrecio() * producto.getCantidad();
+        }
+        totalConIGV = totalSinIGV * (1 + IGV);
     }
 
     public Pedido getPedido() {
         return pedido;
     }
 
-    public void setPedido(Pedido pedido) {
-        this.pedido = pedido;
-    }
-
-    public double getTotal() {
-        return total;
-    }
-
-    public void setTotal(double total) {
-        this.total = total;
-    }
-
-    public ArrayList<DetalleVenta> getListaventa() {
-        return listaventa;
-    }
-
-    public void setListaventa(ArrayList<DetalleVenta> listaventa) {
-        this.listaventa = listaventa;
+    public Cliente getCliente() {
+        return cliente;
     }
     
     
-    
+    public double getTotalSinIGV() {
+        return totalSinIGV;
+    }
+
+    public double getTotalConIGV() {
+        return totalConIGV;
+    }
 }
+    
+

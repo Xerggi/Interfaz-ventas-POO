@@ -13,18 +13,20 @@ public class Empleado {
     private String nombre;
     private String apellido;
     private String puesto;
+    private int id;
 
     public Empleado(String nombre, String apellido, String puesto) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.puesto = puesto;
+        this.id=id;
     }
 
-    public String getNomvre() {
+    public String getNombre() {
         return nombre;
     }
 
-    public void setNomvre(String nomvre) {
+    public void setNombre(String nomvre) {
         this.nombre = nomvre;
     }
 
@@ -42,6 +44,14 @@ public class Empleado {
 
     public void setPuesto(String puesto) {
         this.puesto = puesto;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
     
     
