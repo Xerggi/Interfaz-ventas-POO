@@ -4,44 +4,62 @@
  */
 package com.mycompany.sistema_ventas2;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author xergg
- */
+    
+
 public class EfectuarPago extends javax.swing.JDialog {
 
-    private Factura factura;
-    
+    private Pedido pedido;
     public EfectuarPago(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-        this.factura = factura;
-        initComponents();
-        mostrarDetallesPedido();
+        initComponents(); 
+        this.pedido =pedido;
         this.setLocationRelativeTo(parent);
+        mostrarDetalleVenta();
+
     }
 
-    private void mostrarDetallesPedido(){
-         String detalles = "Cliente:\n" +
-                          "Nombre: " + factura.getCliente().getNombre() + "\n" +
-                          "DNI: " + factura.getCliente().getDni() + "\n" +
-                          "Teléfono: " + factura.getCliente().getTelefono() + "\n" +
-                          "Dirección: " + factura.getCliente().getDireccion() + "\n\n" +
-                          "Número de Pedido: " + factura.getPedido().getCodigo() + "\n\n" +
-                          "Productos:\n";
 
-        for (Producto producto : factura.getPedido().getListaProductos()) {
-            detalles += producto.getNombre() + " - Cantidad: " + producto.getCantidad() +
-                        " - Precio: " + producto.getPrecio() + "\n";
+    private void mostrarDetalleVenta(){
+        for (Cliente c : Principal.listaClientes) {
+            txapago.append("Nombre: " + c.getNombre());
+            txapago.append("\nDNI: " + c.getDni());
+            txapago.append("\nTelefono: " + c.getTelefono());
+            txapago.append("\nDireccion: " + c.getDireccion() + "\n");
         }
 
-        detalles += "\nTotal sin IGV: " + String.format("%.2f", factura.getTotalSinIGV()) + "\n" +
-                    "Total con IGV: " + String.format("%.2f", factura.getTotalConIGV());
+        for (Pedido p : Principal.listaPedidos) {
+            txapago.append("\nPedido: " + p.getCodigo());
+            for (Producto pro : p.getListaProductos()) {
+                txapago.append("\n  Producto: " + pro.getNombre());
+                txapago.append("\n  Cantidad: " + pro.getCantidad());
+                txapago.append("\n  Precio: " + pro.getPrecio());
+                txapago.append("\n  Stock: " + pro.getStock());
+            }
+        }
 
-        txapago.setText(detalles);
+            double totalSinIGV = calcularTotalSinIGV();
+            double totalConIGV = calcularTotalConIGV(totalSinIGV);
+
+            txapago.append("Total sin IGV: " + totalSinIGV + "\n");
+            txapago.append("Total con IGV: " + totalConIGV + "\n");
+
     }
- 
+    
+    private double calcularTotalSinIGV() {
+        double total = 0;
+        for (Producto producto : pedido.getListaProductos()) {
+            total += producto.getPrecio() * producto.getCantidad();
+        }
+        return total;
+    }
+
+    private double calcularTotalConIGV(double totalSinIGV) {
+        return totalSinIGV * (1 + 0.18); // IGV del 18%
+    }
+    
     private void realizarPago() {
         JOptionPane.showMessageDialog(this, "Pago efectuado correctamente", "Pago", JOptionPane.INFORMATION_MESSAGE);
     }
@@ -75,16 +93,21 @@ public class EfectuarPago extends javax.swing.JDialog {
                 btnpagarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnpagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, 90, 50));
+        jPanel1.add(btnpagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, 90, 50));
 
         btnimprimir.setText("IMPRIMIR");
-        jPanel1.add(btnimprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 300, 100, 50));
+        btnimprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnimprimirActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnimprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 350, 100, 50));
 
         txapago.setColumns(20);
         txapago.setRows(5);
         jScrollPane2.setViewportView(txapago);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 440, 200));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 440, 290));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 590, 430));
 
@@ -94,6 +117,10 @@ public class EfectuarPago extends javax.swing.JDialog {
     private void btnpagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpagarActionPerformed
        realizarPago();
     }//GEN-LAST:event_btnpagarActionPerformed
+
+    private void btnimprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnimprimirActionPerformed
+        
+    }//GEN-LAST:event_btnimprimirActionPerformed
 
     /**
      * @param args the command line arguments

@@ -39,6 +39,7 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -53,6 +54,7 @@ public class Principal extends javax.swing.JFrame {
         MnuReporte = new javax.swing.JMenuItem();
         jmenupago = new javax.swing.JMenu();
         MnuPago = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -91,6 +93,8 @@ public class Principal extends javax.swing.JFrame {
 
         jMenu4.setText("Edit");
         jMenuBar2.add(jMenu4);
+
+        jMenuItem3.setText("jMenuItem3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -181,6 +185,11 @@ public class Principal extends javax.swing.JFrame {
 
         jmenupago.setText("Pago");
         jmenupago.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jmenupago.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmenupagoActionPerformed(evt);
+            }
+        });
 
         MnuPago.setText("Pagar compra");
         MnuPago.addActionListener(new java.awt.event.ActionListener() {
@@ -189,6 +198,9 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jmenupago.add(MnuPago);
+
+        jMenuItem5.setText("rmd");
+        jmenupago.add(jMenuItem5);
 
         jMenuBar1.add(jmenupago);
 
@@ -242,7 +254,7 @@ public class Principal extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_MnuNuevaVentaActionPerformed
-
+ 
     private void MnuReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnuReporteActionPerformed
           ReporteVenta r = new ReporteVenta(this,true);
           r.setVisible(true);
@@ -269,10 +281,16 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_MnuClientesActionPerformed
 
     private void MnuPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnuPagoActionPerformed
-        EfectuarPago efectuarpago = new EfectuarPago(this,true);
-        efectuarpago.setVisible(true);
+        EfectuarPago ef = new EfectuarPago(this, true);
+        ef.setVisible(true);
     }//GEN-LAST:event_MnuPagoActionPerformed
 
+    private void jmenupagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmenupagoActionPerformed
+        //creado para prueba
+
+    }//GEN-LAST:event_jmenupagoActionPerformed
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -329,7 +347,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPopupMenu jPopupMenu1;

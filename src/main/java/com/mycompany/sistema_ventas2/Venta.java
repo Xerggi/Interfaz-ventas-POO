@@ -12,6 +12,7 @@ public class Venta extends javax.swing.JDialog {
     private Pedido pedido;
     private ArrayList<Producto> productos;
 
+
     public Cliente getCliente() {
         return cliente;
     }
@@ -208,6 +209,8 @@ public class Venta extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtStockActionPerformed
     
+    
+    
     void limpiar(){
         txtNombre.setText("");
         txtDni.setText("");
@@ -238,9 +241,11 @@ public class Venta extends javax.swing.JDialog {
         limpiar();
         
     }//GEN-LAST:event_btnNuevaventaActionPerformed
-
+    
+    
+    
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-       
+       if (this.pedido != null) {
             String nombreProducto = txtNombreProducto.getText();
             int cantidad = Integer.parseInt(txtCantidad.getText());
             double precio = Double.parseDouble(txtPrecio.getText());
@@ -252,14 +257,10 @@ public class Venta extends javax.swing.JDialog {
             }
 
             Producto producto = new Producto(nombreProducto, cantidad, precio, stock);
-            pedido.agregarProducto(nombreProducto,cantidad, precio, stock);
+            this.pedido.agregarProducto(nombreProducto,cantidad, precio, stock);
 
             JOptionPane.showMessageDialog(null, "Producto agregado correctamente", "Acción exitosa", JOptionPane.INFORMATION_MESSAGE);
-        
-        
-            
-        
-
+}
     }//GEN-LAST:event_btnAgregarActionPerformed
     
     void inhabilitar(){
@@ -284,23 +285,15 @@ public class Venta extends javax.swing.JDialog {
         String telefono = txtTelefono.getText();
         String direccion = txtDireccion.getText();
         String codigo = txtCodigoPedido.getText();
-        String nombreP = txtNombreProducto.getText();
-        String cantidadStr = txtCantidad.getText();
-        String precioStr = txtPrecio.getText();
-        String stockStr = txtStock.getText();
-        
-        if (nombre.isEmpty() && dni.isEmpty() && telefono.isEmpty() && direccion.isEmpty() &&
-        codigo.isEmpty() && nombreP.isEmpty() && cantidadStr.isEmpty() && precioStr.isEmpty() && stockStr.isEmpty()) {
-        JOptionPane.showMessageDialog(null, "Todos los campos están vacíos. Por favor, complete al menos uno.");
-        return;
-        }
-        
+
         if (nombre.isEmpty() || dni.isEmpty() || telefono.isEmpty() || direccion.isEmpty() || codigo.isEmpty()) {
                 throw new IllegalArgumentException("Por favor complete todos los campos del pedido.");
             }
  
             Cliente c = new Cliente(nombre, dni, telefono, direccion);
-            pedido  = new Pedido(codigo);
+            this.cliente=c;
+            Pedido p = new Pedido(codigo);
+            this.pedido=p;
  
             JOptionPane.showMessageDialog(null, "Pedido creado correctamente", "Acción exitosa", JOptionPane.INFORMATION_MESSAGE);
         
@@ -313,7 +306,7 @@ public class Venta extends javax.swing.JDialog {
     }//GEN-LAST:event_btnCrearPedidoActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        
+        dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
     
     

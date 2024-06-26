@@ -13,14 +13,12 @@ import java.util.ArrayList;
 public class Factura {
     
     private Pedido pedido;
-    private Cliente cliente;
     private double totalSinIGV;
     private double totalConIGV;
     private static final double IGV = 0.18;
 
-    public Factura(Pedido pedido,Cliente cliente) {
+    public Factura(Pedido pedido) {
         this.pedido = pedido;
-        this.cliente=cliente;
         calcularTotales();
     }
 
@@ -31,16 +29,7 @@ public class Factura {
         }
         totalConIGV = totalSinIGV * (1 + IGV);
     }
-
-    public Pedido getPedido() {
-        return pedido;
-    }
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-    
-    
+  
     public double getTotalSinIGV() {
         return totalSinIGV;
     }
